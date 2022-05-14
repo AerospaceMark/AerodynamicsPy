@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1' 
+VERSION = '0.0.3' 
 DESCRIPTION = 'Lots of simple aerodynamics calculations, all in one place.'
 LONG_DESCRIPTION = ''
 

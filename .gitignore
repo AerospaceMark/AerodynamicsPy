@@ -1,2 +1,6 @@
 aerodynamicspy.egg-info/
 dist/
+*/__pycache__*
+*cython*
+*.pyc
+*build/*

@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+import aerodynamicspy as aero
 
 # Create an array in X
 def create_x_array(num_points):
@@ -51,11 +53,9 @@ def naca(c,p,t,N):
     coordinates[len(x) + 0:2*len(x),0] = np.flip(coordinates[len(x) + 0:2*len(x),0])
     coordinates[len(x) + 0:2*len(x),1] = np.flip(coordinates[len(x) + 0:2*len(x),1])
 
-    coords = pd.DataFrame
-    coords.x = coordinates[:,0]
-    coords.z = coordinates[:,1]
+    NACA = aero.Airfoil("NACA " + str(int(c*100)) + str(int(p*10)) + str(int(t*100)),coordinates[:,0],coordinates[:,1])
 
-    return coords
+    return NACA
 
 def _camber(x,p,c):
 
