@@ -53,6 +53,13 @@ def naca(c,p,t,N):
     coordinates[len(x) + 0:2*len(x),0] = np.flip(coordinates[len(x) + 0:2*len(x),0])
     coordinates[len(x) + 0:2*len(x),1] = np.flip(coordinates[len(x) + 0:2*len(x),1])
 
+    # We now need to go from the trailing edge, around the bottom and then the top before going back to the trailing edge
+    coordinates[:,0] = np.flip(coordinates[:,0])
+    coordinates[:,1] = np.flip(coordinates[:,1])
+
+    # We have the leading edge define twice, let's now remove that one
+    coordinates = np.delete(coordinates,N,0)
+
     NACA = aero.Airfoil("NACA " + str(int(c*100)) + str(int(p*10)) + str(int(t*100)),coordinates[:,0],coordinates[:,1])
 
     return NACA
